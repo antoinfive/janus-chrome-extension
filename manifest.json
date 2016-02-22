@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Janus",
+  "description": "This extension will let you save bookmarks to your Janus Dashboard",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "ChromeJanus.png",
+    "default_title": "Click to add to Janus Dashboard"
+  },
+    "background": {
+    "scripts": ["background.js"]
+  },
+    "content_scripts": [
+       {
+         "matches": [
+           "<all_urls>"
+         ],
+         "js": ["jquery-2.2.0.min.js", "save.js"]
+       }
+     ],
+     "permissions": [
+        "contentSettings",
+        "cookies",
+        "tabs",
+        "geolocation",
+        "http://*/*"
+  ]
+}
