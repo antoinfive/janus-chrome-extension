@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener(
         var method = "POST";
         xhttp.open(method, request.url, true);
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhttp.send(JSON.stringify({bookmark:{link: request.data, title: title}}));
+        xhttp.send(JSON.stringify({bookmark:{link: request.data, title: title, token: request.token}}));
         xhttp.onload = function(){
           callback(xhttp.responseText);
         };
@@ -33,20 +33,20 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    alert("eagle approaching");
-    if( request.message === "sendZeTokens" ) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.open(request.method, request.url, true);
-        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhttp.send(JSON.stringify({user: request.data}));
-        alert('eagle landing');
-        xhttp.onload = function(){
-          callback(xhttp.responseText);
-        };
-        return true;
-    }
-  }
-);
+//
+// chrome.runtime.onMessage.addListener(
+//   function(request, sender, sendResponse) {
+//     alert("eagle approaching");
+//     if( request.message === "sendZeTokens" ) {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.open(request.method, request.url, true);
+//         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+//         xhttp.send(JSON.stringify({user: request.data}));
+//         alert('eagle landing');
+//         xhttp.onload = function(){
+//           callback(xhttp.responseText);
+//         };
+//         return true;
+//     }
+//   }
+// );
