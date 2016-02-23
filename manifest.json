@@ -18,7 +18,7 @@
          "matches": [
            "<all_urls>"
          ],
-         "js": ["jquery-2.2.0.min.js", "storage.js"]
+         "js": ["jquery-2.2.0.min.js", "storage.js", "save.js"]
        }
      ],
      "permissions": [
