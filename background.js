@@ -12,7 +12,11 @@ signedIn = function(auth_token){
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
-    chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
+      if(activeTab !== "undefined") {
+        chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
+      } else {
+        alert("the things are breaking");
+      }
   });
 });
 
@@ -24,7 +28,11 @@ chrome.runtime.onMessage.addListener(
         var method = "POST";
         xhttp.open(method, request.url, true);
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhttp.send(JSON.stringify({bookmark:{link: request.data, title: title, token: request.token}}));
+        xhttp.send(JSON.stringify({bookmark:
+          {link: request.data,
+            title: title},
+          user:{token: request.token}
+        }));
         xhttp.onload = function(){
           callback(xhttp.responseText);
         };

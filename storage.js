@@ -13,8 +13,7 @@
 //                    console.log(responseText);
 //             });
 //
-//     // alert("eagle out");
+//     // alert("eagle out")
 //   }
 // }
 //
-// getToken(localStorage);
