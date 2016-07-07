@@ -9,6 +9,7 @@
     "default_icon": "ChromeJanus.png",
     "default_title": "Click to add to Janus Dashboard"
   },
+
     "background": {
     "scripts": ["background.js"]
   },
@@ -17,7 +18,7 @@
          "matches": [
            "<all_urls>"
          ],
-         "js": ["jquery-2.2.0.min.js", "save.js"]
+         "js": ["jquery-2.2.0.min.js", "storage.js", "save.js"]
        }
      ],
      "permissions": [
